@@ -12,7 +12,12 @@ const app = express();
 // Connect to database
 connectDB();
 
+app.use(express.json());
 app.use(cors());
+
+app.get("/", async (req, res) => {
+  res.send("Server Is Up and Running for you");
+});
 
 app.use(
   `/graphql`,
